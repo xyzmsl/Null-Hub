@@ -5,7 +5,7 @@
 local linkId = "276J/gkh4ycya"  -- From your work.ink key generation link
 local workInkUrl = "https://work.ink/" .. linkId  -- Full URL for Get Key button
 local mainScriptUrl = "https://raw.githubusercontent.com/xyzmsl/Null-Hub/refs/heads/main/Null%20Hub/Null%20Temp.lua"  -- URL to your main Roblox script
-local keyFileName = "work_ink_key.txt"  -- File to store the key
+local keyFileName = "nullhubkey.txt"  -- File to store the key
 local HttpService = game:GetService("HttpService")  -- For official scripts; use syn.request for exploits
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
