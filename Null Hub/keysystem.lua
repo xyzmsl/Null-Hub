@@ -2,7 +2,7 @@
 -- Replace 'YOUR_LINK_ID' with your actual work.ink link ID (e.g., if link is work.ink/abc, ID is 'abc')
 -- Replace 'YOUR_MAIN_SCRIPT_URL' with the URL to your main script (e.g., Pastebin raw or GitHub raw)
 
-local linkId = "276J/gkh4ycya"  -- From your work.ink key generation link
+local linkId = "276J"  -- From your work.ink key generation link
 local workInkUrl = "https://work.ink/" .. linkId  -- Full URL for Get Key button
 local mainScriptUrl = "https://raw.githubusercontent.com/xyzmsl/Null-Hub/refs/heads/main/Null%20Hub/Null%20Temp.lua"  -- URL to your main Roblox script
 local keyFileName = "nullhubkey.txt"  -- File to store the key
