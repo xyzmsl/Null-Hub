@@ -43,7 +43,7 @@ function Library:CreateWindow(windowname,windowinfo)
     cursor.Parent = fu8rj82n
     cursor.BackgroundTransparency = 1
     cursor.Size = UDim2.new(0, 32, 0, 32)
-    cursor.Image = "rbxassetid://357958782"  -- default Roblox cursor
+    cursor.Image = "rbxassetid://3421415816"  -- default Roblox cursor
     cursor.ZIndex = 9999
     game:GetService("RunService").RenderStepped:Connect(function()
         local mouse = game.Players.LocalPlayer:GetMouse()
@@ -52,6 +52,7 @@ function Library:CreateWindow(windowname,windowinfo)
     
     Frame.Parent = fu8rj82n
     Frame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+    Frame.BackgroundTransparency = 0  -- Outer frame remains fully opaque
     Frame.BorderColor3 = Color3.fromRGB(20, 20, 20)
     Frame.BorderSizePixel = 0
     Frame.Position = UDim2.new(0.289808273, 0, 0.313227266, 0)
@@ -71,6 +72,7 @@ function Library:CreateWindow(windowname,windowinfo)
     DashBoard.Name = "DashBoard"
     DashBoard.Parent = Frame
     DashBoard.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+    DashBoard.BackgroundTransparency = 0.35  -- Inner dashboard now semi-transparent
     DashBoard.BorderColor3 = Color3.fromRGB(15, 15, 15)
     DashBoard.Position = UDim2.new(0.0185185205, 0, 0.16842106, 0)
     DashBoard.Size = UDim2.new(0, 140, 0, 270)  -- WIDER TABS
@@ -105,6 +107,7 @@ function Library:CreateWindow(windowname,windowinfo)
     PageContainer.Name = "PageContainer"
     PageContainer.Parent = Frame
     PageContainer.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+    PageContainer.BackgroundTransparency = 0.35  -- Inner content area now semi-transparent
     PageContainer.BorderColor3 = Color3.fromRGB(15, 15, 15)
     PageContainer.Position = UDim2.new(0.282407403, 0, 0.16842106, 0)
     PageContainer.Size = UDim2.new(0, 360, 0, 270)  -- WIDER CONTENT
@@ -251,6 +254,7 @@ function Library:CreateWindow(windowname,windowinfo)
         Tab.Name = "Tab"
         Tab.Parent = TabContainer
         Tab.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+        Tab.BackgroundTransparency = 0  -- Tabs remain solid
         Tab.BorderColor3 = Color3.fromRGB(15, 15, 15)
         Tab.Position = UDim2.new(-0.0250000004, 0, 0, 0)
         Tab.Size = UDim2.new(0, 130, 0, 32)  -- BIGGER TABS
@@ -334,6 +338,7 @@ function Library:CreateWindow(windowname,windowinfo)
             LabelHolder.Name = "LabelHolder"
             LabelHolder.Parent = Home
             LabelHolder.BackgroundColor3 = Color3.fromRGB(17, 17, 17)
+            LabelHolder.BackgroundTransparency = 0.35  -- Element backgrounds semi-transparent
             LabelHolder.BorderColor3 = Color3.fromRGB(17, 17, 17)
             LabelHolder.BorderSizePixel = 0
             LabelHolder.Position = UDim2.new(0.0167785231, 0, 0, 0)
@@ -381,6 +386,7 @@ function Library:CreateWindow(windowname,windowinfo)
             ButtonHolder.Name = "ButtonHolder"
             ButtonHolder.Parent = Home
             ButtonHolder.BackgroundColor3 = Color3.fromRGB(17, 17, 17)
+            ButtonHolder.BackgroundTransparency = 0.35  -- Element backgrounds semi-transparent
             ButtonHolder.BorderColor3 = Color3.fromRGB(17, 17, 17)
             ButtonHolder.BorderSizePixel = 0
             ButtonHolder.Position = UDim2.new(0.0167785231, 0, 0, 0)
@@ -431,6 +437,7 @@ function Library:CreateWindow(windowname,windowinfo)
             ToggleHolder.Name = "ToggleHolder"
             ToggleHolder.Parent = Home
             ToggleHolder.BackgroundColor3 = Color3.fromRGB(17, 17, 17)
+            ToggleHolder.BackgroundTransparency = 0.35  -- Element backgrounds semi-transparent
             ToggleHolder.BorderColor3 = Color3.fromRGB(17, 17, 17)
             ToggleHolder.BorderSizePixel = 0
             ToggleHolder.Position = UDim2.new(0.0167785231, 0, 0, 0)
@@ -519,6 +526,7 @@ function Library:CreateWindow(windowname,windowinfo)
             SliderHolder.Name = "SliderHolder"
             SliderHolder.Parent = Home
             SliderHolder.BackgroundColor3 = Color3.fromRGB(17, 17, 17)
+            SliderHolder.BackgroundTransparency = 0.35  -- Element backgrounds semi-transparent
             SliderHolder.BorderColor3 = Color3.fromRGB(17, 16, 16)
             SliderHolder.BorderSizePixel = 0
             SliderHolder.Position = UDim2.new(0.0167785231, 0, 0, 0)
@@ -621,6 +629,7 @@ function Library:CreateWindow(windowname,windowinfo)
             TextBoxHolder.Name = "TextBoxHolder"
             TextBoxHolder.Parent = Home
             TextBoxHolder.BackgroundColor3 = Color3.fromRGB(17, 17, 17)
+            TextBoxHolder.BackgroundTransparency = 0.35  -- Element backgrounds semi-transparent
             TextBoxHolder.BorderColor3 = Color3.fromRGB(17, 16, 16)
             TextBoxHolder.BorderSizePixel = 0
             TextBoxHolder.Position = UDim2.new(0.0167785231, 0, 0, 0)
@@ -684,6 +693,7 @@ function Library:CreateWindow(windowname,windowinfo)
             DropdownHolder.Name = "DropdownHolder"
             DropdownHolder.Parent = Home
             DropdownHolder.BackgroundColor3 = Color3.fromRGB(17, 17, 17)
+            DropdownHolder.BackgroundTransparency = 0.35  -- Element backgrounds semi-transparent
             DropdownHolder.BorderColor3 = Color3.fromRGB(17, 17, 17)
             DropdownHolder.BorderSizePixel = 0
             DropdownHolder.Position = UDim2.new(0.0167785231, 0, 0, 0)
@@ -729,6 +739,7 @@ function Library:CreateWindow(windowname,windowinfo)
             DropdownContainer.Parent = DropdownHolder
             DropdownContainer.Active = true
             DropdownContainer.BackgroundColor3 = Color3.fromRGB(17, 17, 17)
+            DropdownContainer.BackgroundTransparency = 0.35  -- Dropdown container semi-transparent
             DropdownContainer.BorderColor3 = Color3.fromRGB(17, 17, 17)
             DropdownContainer.BorderSizePixel = 0
             DropdownContainer.ClipsDescendants = true
@@ -800,6 +811,7 @@ function Library:CreateWindow(windowname,windowinfo)
                 Option.Name = "Option"
                 Option.Parent = DropdownOptionContainer
                 Option.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+                Option.BackgroundTransparency = 0.35  -- Dropdown options semi-transparent
                 Option.BorderColor3 = Color3.fromRGB(15, 15, 15)
                 Option.Position = UDim2.new(0.0173611119, 0, 0, 0)
                 Option.Size = UDim2.new(0, 335, 0, 26)
