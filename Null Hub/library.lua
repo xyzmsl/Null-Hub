@@ -52,6 +52,7 @@ function Library:CreateWindow(windowname,windowinfo)
     
     Frame.Parent = fu8rj82n
     Frame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+    Frame.BackgroundTransparency = 0.35  -- <-- Made the main background frame more transparent (was 0)
     Frame.BorderColor3 = Color3.fromRGB(20, 20, 20)
     Frame.BorderSizePixel = 0
     Frame.Position = UDim2.new(0.289808273, 0, 0.313227266, 0)
