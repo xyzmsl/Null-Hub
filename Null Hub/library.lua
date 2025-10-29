@@ -49,25 +49,42 @@ function Library:CreateWindow(windowname,windowinfo)
         cursor.Position = UDim2.new(0, mouse.X - 8, 0, mouse.Y - 8)
     end)
     
-Frame.Parent = fu8rj82n
-Frame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-Frame.BackgroundTransparency = 0.5  -- ⬅️ Made semi-transparent
-Frame.BorderColor3 = Color3.fromRGB(20, 20, 20)
-Frame.BorderSizePixel = 0
-Frame.Position = UDim2.new(0.289808273, 0, 0.313227266, 0)
-Frame.Size = UDim2.new(0, 520, 0, 340)  -- BIGGER UI
+-- Outer Frame (Opaque black)
+    local Frame = Instance.new("Frame")
+    Frame.Parent = fu8rj82n
+    Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    Frame.BackgroundTransparency = 1  -- fully opaque outer frame
+    Frame.BorderSizePixel = 0
+    Frame.Position = UDim2.new(0.289808273, 0, 0.313227266, 0)
+    Frame.Size = UDim2.new(0, 520, 0, 340)
 
-FrameCorner.Name = "FrameCorner"
-FrameCorner.Parent = Frame
+-- Rounded corners
+    local FrameCorner = Instance.new("UICorner")
+    FrameCorner.CornerRadius = UDim.new(0, 12)
+    FrameCorner.Parent = Frame
 
--- Adjusted gradient to be more subtle since background is see-through
-FrameGradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0, Color3.fromRGB(80, 40, 130)),
+-- Outer gradient
+    local FrameGradient = Instance.new("UIGradient")
+    FrameGradient.Color = ColorSequence.new{
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(60, 20, 100)),
     ColorSequenceKeypoint.new(1, Color3.fromRGB(140, 80, 200))
 }
-FrameGradient.Rotation = 90
-FrameGradient.Transparency = NumberSequence.new(1)  -- ⬅️ Slight fade on gradient
-FrameGradient.Parent = Frame
+    FrameGradient.Rotation = 90
+    FrameGradient.Transparency = NumberSequence.new{
+    NumberSequenceKeypoint.new(0, 0),
+    NumberSequenceKeypoint.new(0.5, 0.8),
+    NumberSequenceKeypoint.new(1, 0)
+}  -- fades toward the center
+   FrameGradient.Parent = Frame
+
+-- Inner transparent frame (for content)
+    local InnerFrame = Instance.new("Frame")
+    InnerFrame.Parent = Frame
+    InnerFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+    InnerFrame.BackgroundTransparency = 1  -- fully transparent center
+    InnerFrame.BorderSizePixel = 0
+    InnerFrame.Size = UDim2.new(1, 25, 1, 25)  -- padding from edges
+    InnerFrame.Position = UDim2.new(0, 10, 0, 10)
     
     DashBoard.Name = "DashBoard"
     DashBoard.Parent = Frame
@@ -189,12 +206,12 @@ FrameGradient.Parent = Frame
 	end)
 	
 	Cre.MouseLeave:Connect(function()
-		YepTitle.BackgroundTransparency = 0
+		YepTitle.BackgroundTransparency = 0.5
 		YepTitle.TextTransparency = 0.3
 		wait(0.05)
 		YepTitle.BackgroundTransparency = 0.8
 		YepTitle.TextTransparency = 0.5
-		Cre.ImageColor3 = Color3.fromRGB(0,0,0)
+		Cre.ImageColor3 = Color3.fromRGB(255,255,255)
 		wait(0.05)
 		YepTitle.BackgroundTransparency = 1
 		YepTitle.TextTransparency = 1
@@ -484,7 +501,7 @@ FrameGradient.Parent = Frame
             
             ToggleBall.Name = "ToggleBall"
             ToggleBall.Parent = ToggleFrame
-            ToggleBall.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+            ToggleBall.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
             ToggleBall.Position = UDim2.new(0.12, 0, 0.15, 0)
             ToggleBall.Size = UDim2.new(0, 16, 0, 16)
             
@@ -791,7 +808,7 @@ FrameGradient.Parent = Frame
                     Home.CanvasPosition = Vector2.new(0,0)
                 else
                     DropDownEnabled = false
-                    DropdownIcon.ImageColor3 = Color3.fromRGB(0, 0, 0)
+                    DropdownIcon.ImageColor3 = Color3.fromRGB(255,255,255)
                     DropdownOptionContainer:TweenSize(UDim2.new(0, 345,0, 10),"Out","Linear",0.2)
                     wait(0.2)
                     DropdownOptionContainer.Visible = false
@@ -808,9 +825,9 @@ FrameGradient.Parent = Frame
 
                 Option.Name = "Option"
                 Option.Parent = DropdownOptionContainer
-                Option.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+                Option.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
                 Option.BackgroundTransparency = 0 
-                Option.BorderColor3 = Color3.fromRGB(0, 0, 0)
+                Option.BorderColor3 = Color3.fromRGB(15, 15, 15)
                 Option.Position = UDim2.new(0.0173611119, 0, 0, 0)
                 Option.Size = UDim2.new(0, 335, 0, 26)
                 Option.AutoButtonColor = false
@@ -842,7 +859,7 @@ FrameGradient.Parent = Frame
 
                 Option.MouseButton1Down:Connect(function()
                     DropDownEnabled = false
-                    DropdownIcon.ImageColor3 = Color3.fromRGB(0, 0, 0)
+                    DropdownIcon.ImageColor3 = Color3.fromRGB(255,255,255)
                     DropdownOptionContainer:TweenSize(UDim2.new(0, 345,0, 10),"Out","Linear",0.2)
                     wait(0.2)
                     DropdownOptionContainer.Visible = false
