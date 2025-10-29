@@ -43,7 +43,7 @@ function Library:CreateWindow(windowname,windowinfo)
     cursor.Parent = fu8rj82n
     cursor.BackgroundTransparency = 1
     cursor.Size = UDim2.new(0, 32, 0, 32)
-    cursor.Image = "rbxassetid://3421415816"  -- default Roblox cursor
+    cursor.Image = "rbxassetid://357958782"  -- default Roblox cursor
     cursor.ZIndex = 9999
     game:GetService("RunService").RenderStepped:Connect(function()
         local mouse = game.Players.LocalPlayer:GetMouse()
@@ -52,7 +52,6 @@ function Library:CreateWindow(windowname,windowinfo)
     
     Frame.Parent = fu8rj82n
     Frame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-    Frame.BackgroundTransparency = 0.35  -- <-- Made the main background frame more transparent (was 0)
     Frame.BorderColor3 = Color3.fromRGB(20, 20, 20)
     Frame.BorderSizePixel = 0
     Frame.Position = UDim2.new(0.289808273, 0, 0.313227266, 0)
