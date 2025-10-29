@@ -43,7 +43,7 @@ function Library:CreateWindow(windowname,windowinfo)
     cursor.Parent = fu8rj82n
     cursor.BackgroundTransparency = 1
     cursor.Size = UDim2.new(0, 32, 0, 32)
-    cursor.Image = "rbxassetid://357958782"  -- default Roblox cursor
+    cursor.Image = "rbxassetid://3421415816"  -- default Roblox cursor
     cursor.ZIndex = 9999
     game:GetService("RunService").RenderStepped:Connect(function()
         local mouse = game.Players.LocalPlayer:GetMouse()
