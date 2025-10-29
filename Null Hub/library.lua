@@ -15,15 +15,12 @@ function Library:CreateWindow(windowname,windowinfo)
     local fu8rj82n = Instance.new("ScreenGui")
     local Frame = Instance.new("Frame")
     local FrameCorner = Instance.new("UICorner")
-    local FrameGradient = Instance.new("UIGradient")  -- Gradient for main frame
     local DashBoard = Instance.new("Frame")
     local DashBoardCorner = Instance.new("UICorner")
-    local DashBoardGradient = Instance.new("UIGradient")  -- Gradient for dashboard
     local TabContainer = Instance.new("Frame")
     local TabContainer_2 = Instance.new("UIListLayout")
     local PageContainer = Instance.new("Frame")
     local PageContainerCorner = Instance.new("UICorner")
-    local PageContainerGradient = Instance.new("UIGradient")  -- Gradient for page container
     local PageFolder = Instance.new("Folder")
     local Title = Instance.new("TextLabel")
     local Yep = Instance.new("TextButton")
@@ -35,21 +32,29 @@ function Library:CreateWindow(windowname,windowinfo)
     fu8rj82n.Parent = game.CoreGui
     fu8rj82n.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
     fu8rj82n.ResetOnSpawn = false
-    
-    -- 1. Add cursor being shown regardless of game cursor
-    fu8rj82n.IgnoreGuiInset = true
+    fu8rj82n.IgnoreGuiInset = true  -- Ensures UI respects full screen
+
+    -- Custom Cursor (Always Visible)
     local cursor = Instance.new("ImageLabel")
     cursor.Name = "CustomCursor"
     cursor.Parent = fu8rj82n
     cursor.BackgroundTransparency = 1
     cursor.Size = UDim2.new(0, 32, 0, 32)
-    cursor.Image = "rbxassetid://357958782"  -- default Roblox cursor
-    cursor.ZIndex = 9999
-    game:GetService("RunService").RenderStepped:Connect(function()
-        local mouse = game.Players.LocalPlayer:GetMouse()
-        cursor.Position = UDim2.new(0, mouse.X - 8, 0, mouse.Y - 8)
+    cursor.Position = UDim2.new(0, 0, 0, 0)
+    cursor.Image = "rbxassetid://357958782"  -- Default Roblox cursor
+    cursor.ZIndex = 10000
+    cursor.Visible = true
+
+    local player = game.Players.LocalPlayer
+    local mouse = player:GetMouse()
+    local runService = game:GetService("RunService")
+
+    runService.RenderStepped:Connect(function()
+        if mouse then
+            cursor.Position = UDim2.new(0, mouse.X - 8, 0, mouse.Y - 8)
+        end
     end)
-    
+
     Frame.Parent = fu8rj82n
     Frame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
     Frame.BorderColor3 = Color3.fromRGB(20, 20, 20)
@@ -59,14 +64,6 @@ function Library:CreateWindow(windowname,windowinfo)
     
     FrameCorner.Name = "FrameCorner"
     FrameCorner.Parent = Frame
-
-    -- Gradient: Dark purple (top) → Lighter purple (bottom)
-    FrameGradient.Color = ColorSequence.new{
-        ColorSequenceKeypoint.new(0, Color3.fromRGB(60, 20, 100)),   -- Dark purple
-        ColorSequenceKeypoint.new(1, Color3.fromRGB(140, 80, 200))   -- Lighter purple
-    }
-    FrameGradient.Rotation = 90
-    FrameGradient.Parent = Frame
     
     DashBoard.Name = "DashBoard"
     DashBoard.Parent = Frame
@@ -78,14 +75,6 @@ function Library:CreateWindow(windowname,windowinfo)
     DashBoardCorner.CornerRadius = UDim.new(0, 8)
     DashBoardCorner.Name = "DashBoardCorner"
     DashBoardCorner.Parent = DashBoard
-
-    -- Gradient for DashBoard
-    DashBoardGradient.Color = ColorSequence.new{
-        ColorSequenceKeypoint.new(0, Color3.fromRGB(45, 15, 75)),
-        ColorSequenceKeypoint.new(1, Color3.fromRGB(110, 60, 160))
-    }
-    DashBoardGradient.Rotation = 90
-    DashBoardGradient.Parent = DashBoard
     
     TabContainer.Name = "TabContainer"
     TabContainer.Parent = DashBoard
@@ -112,14 +101,6 @@ function Library:CreateWindow(windowname,windowinfo)
     PageContainerCorner.CornerRadius = UDim.new(0, 8)
     PageContainerCorner.Name = "PageContainerCorner"
     PageContainerCorner.Parent = PageContainer
-
-    -- Gradient for PageContainer
-    PageContainerGradient.Color = ColorSequence.new{
-        ColorSequenceKeypoint.new(0, Color3.fromRGB(45, 15, 75)),
-        ColorSequenceKeypoint.new(1, Color3.fromRGB(110, 60, 160))
-    }
-    PageContainerGradient.Rotation = 90
-    PageContainerGradient.Parent = PageContainer
     
     PageFolder.Name = "PageFolder"
     PageFolder.Parent = PageContainer
@@ -134,7 +115,7 @@ function Library:CreateWindow(windowname,windowinfo)
     Title.Size = UDim2.new(0, 400, 0, 40)
     Title.Font = Enum.Font.GothamSemibold
     Title.Text = windowname
-    Title.TextColor3 = Color3.fromRGB(160, 60, 220)  -- Darker purple
+    Title.TextColor3 = Color3.fromRGB(140, 60, 200)  -- DARKER PURPLE
     Title.TextSize = 16.000  -- BIGGER
     Title.TextXAlignment = Enum.TextXAlignment.Left
 
@@ -169,7 +150,7 @@ function Library:CreateWindow(windowname,windowinfo)
     YepTitle.Size = UDim2.new(0, 160, 0, 40)
     YepTitle.Font = Enum.Font.GothamSemibold
     YepTitle.Text = windowinfo or "UI Made by Bytes#0001"
-    YepTitle.TextColor3 = Color3.fromRGB(160, 60, 220)  -- Darker purple
+    YepTitle.TextColor3 = Color3.fromRGB(140, 60, 200)  -- DARKER PURPLE
     YepTitle.TextSize = 10.000
     YepTitle.TextTransparency = 1.000
     YepCorner.Name = "YepCorner"
@@ -257,7 +238,7 @@ function Library:CreateWindow(windowname,windowinfo)
         Tab.AutoButtonColor = false
         Tab.Font = Enum.Font.GothamSemibold
         Tab.Text = pagename or "nil"
-        Tab.TextColor3 = Color3.fromRGB(160, 60, 220)  -- Darker purple
+        Tab.TextColor3 = Color3.fromRGB(140, 60, 200)  -- DARKER PURPLE
         Tab.TextSize = 13.000  -- BIGGER FONT
         Tab.TextTransparency = 0.300
         
@@ -352,7 +333,7 @@ function Library:CreateWindow(windowname,windowinfo)
             LabelTitle.Size = UDim2.new(0, 345, 0, 18)
             LabelTitle.Font = Enum.Font.GothamSemibold
             LabelTitle.Text = labelname or ""
-            LabelTitle.TextColor3 = Color3.fromRGB(160, 60, 220)  -- Darker purple
+            LabelTitle.TextColor3 = Color3.fromRGB(140, 60, 200)  -- DARKER PURPLE
             LabelTitle.TextSize = 13.000  -- BIGGER
             
             LabelInfo.Name = "LabelInfo"
@@ -365,7 +346,7 @@ function Library:CreateWindow(windowname,windowinfo)
             LabelInfo.Size = UDim2.new(0, 345, 0, 11)
             LabelInfo.Font = Enum.Font.GothamSemibold
             LabelInfo.Text = labelinfo or ""
-            LabelInfo.TextColor3 = Color3.fromRGB(160, 60, 220)  -- Darker purple
+            LabelInfo.TextColor3 = Color3.fromRGB(140, 60, 200)  -- DARKER PURPLE
             LabelInfo.TextSize = 10.000
             LabelInfo.TextTransparency = 0.300
         end
@@ -396,7 +377,7 @@ function Library:CreateWindow(windowname,windowinfo)
             Button.AutoButtonColor = false
             Button.Font = Enum.Font.GothamSemibold
             Button.Text = buttonname
-            Button.TextColor3 = Color3.fromRGB(160, 60, 220)  -- Darker purple
+            Button.TextColor3 = Color3.fromRGB(140, 60, 200)  -- DARKER PURPLE
             Button.TextSize = 13.000
             
             ButtonCorner.CornerRadius = UDim.new(0, 6)
@@ -450,7 +431,7 @@ function Library:CreateWindow(windowname,windowinfo)
             ToggleTitle.Size = UDim2.new(0, 240, 0, 30)
             ToggleTitle.Font = Enum.Font.GothamSemibold
             ToggleTitle.Text = togglename or ""
-            ToggleTitle.TextColor3 = Color3.fromRGB(160, 60, 220)  -- Darker purple
+            ToggleTitle.TextColor3 = Color3.fromRGB(140, 60, 200)  -- DARKER PURPLE
             ToggleTitle.TextSize = 13.000
             ToggleTitle.TextXAlignment = Enum.TextXAlignment.Left
             
@@ -534,7 +515,7 @@ function Library:CreateWindow(windowname,windowinfo)
             SliderTitle.Size = UDim2.new(0, 280, 0, 10)
             SliderTitle.Font = Enum.Font.GothamSemibold
             SliderTitle.Text = slidername
-            SliderTitle.TextColor3 = Color3.fromRGB(160, 60, 220)  -- Darker purple
+            SliderTitle.TextColor3 = Color3.fromRGB(140, 60, 200)  -- DARKER PURPLE
             SliderTitle.TextSize = 13.000
             SliderTitle.TextXAlignment = Enum.TextXAlignment.Left
             
@@ -560,8 +541,8 @@ function Library:CreateWindow(windowname,windowinfo)
             
             SliderTrail.Name = "SliderTrail"
             SliderTrail.Parent = SliderButton
-            SliderTrail.BackgroundColor3 = Color3.fromRGB(160, 60, 220)  -- Darker purple trail
-            SliderTrail.BorderColor3 = Color3.fromRGB(160, 60, 220)
+            SliderTrail.BackgroundColor3 = Color3.fromRGB(140, 60, 200)  -- DARKER PURPLE TRAIL
+            SliderTrail.BorderColor3 = Color3.fromRGB(140, 60, 200)
             SliderTrail.Size = UDim2.new(0, 12, 0, 8)
             
             SliderTrailCorner.Name = "SliderTrailCorner"
@@ -577,7 +558,7 @@ function Library:CreateWindow(windowname,windowinfo)
             SliderNumber.Size = UDim2.new(0, 40, 0, 8)
             SliderNumber.Font = Enum.Font.GothamSemibold
             SliderNumber.Text = minvalue or "0"
-            SliderNumber.TextColor3 = Color3.fromRGB(160, 60, 220)  -- Darker purple
+            SliderNumber.TextColor3 = Color3.fromRGB(140, 60, 200)  -- DARKER PURPLE
             SliderNumber.TextSize = 12.000
             SliderNumber.TextXAlignment = Enum.TextXAlignment.Left
              
@@ -636,7 +617,7 @@ function Library:CreateWindow(windowname,windowinfo)
             TextBoxTitle.Size = UDim2.new(0, 240, 0, 26)
             TextBoxTitle.Font = Enum.Font.GothamSemibold
             TextBoxTitle.Text = textboxname
-            TextBoxTitle.TextColor3 = Color3.fromRGB(160, 60, 220)  -- Darker purple
+            TextBoxTitle.TextColor3 = Color3.fromRGB(140, 60, 200)  -- DARKER PURPLE
             TextBoxTitle.TextSize = 13.000
             TextBoxTitle.TextXAlignment = Enum.TextXAlignment.Left
             
@@ -646,7 +627,7 @@ function Library:CreateWindow(windowname,windowinfo)
             TextBox.Size = UDim2.new(0, 90, 0, 24)
             TextBox.Font = Enum.Font.GothamSemibold
             TextBox.Text = textboxdefault or "nil"
-            TextBox.TextColor3 = Color3.fromRGB(160, 60, 220)  -- Darker purple
+            TextBox.TextColor3 = Color3.fromRGB(140, 60, 200)  -- DARKER PURPLE
             TextBox.TextSize = 11.000
             
             TextBoxCorner.CornerRadius = UDim.new(0, 6)
@@ -703,7 +684,7 @@ function Library:CreateWindow(windowname,windowinfo)
             DropdownTitle.Size = UDim2.new(0, 240, 0, 30)
             DropdownTitle.Font = Enum.Font.GothamSemibold
             DropdownTitle.Text = dropdownname
-            DropdownTitle.TextColor3 = Color3.fromRGB(160, 60, 220)  -- Darker purple
+            DropdownTitle.TextColor3 = Color3.fromRGB(140, 60, 200)  -- DARKER PURPLE
             DropdownTitle.TextSize = 13.000
             DropdownTitle.TextXAlignment = Enum.TextXAlignment.Left
             
@@ -806,7 +787,7 @@ function Library:CreateWindow(windowname,windowinfo)
                 Option.AutoButtonColor = false
                 Option.Font = Enum.Font.GothamSemibold
                 Option.Text = v
-                Option.TextColor3 = Color3.fromRGB(160, 60, 220)  -- Darker purple
+                Option.TextColor3 = Color3.fromRGB(140, 60, 200)  -- DARKER PURPLE
                 Option.TextSize = 12.000
                 
                 OptionCorner.CornerRadius = UDim.new(0, 7)
@@ -824,7 +805,7 @@ function Library:CreateWindow(windowname,windowinfo)
                 Option.MouseButton1Down:Connect(function()
                     for i,v in pairs(Option.Parent:GetChildren()) do
                         if v:IsA("GuiButton") and v ~= Option then
-                            v.TextColor3 = Color3.fromRGB(160,60,220)
+                            v.TextColor3 = Color3.fromRGB(140,60,200)
                         end
                     end
                     Option.TextColor3 = Color3.fromRGB(137, 246, 255)
