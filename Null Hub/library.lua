@@ -49,105 +49,81 @@ function Library:CreateWindow(windowname,windowinfo)
         cursor.Position = UDim2.new(0, mouse.X - 8, 0, mouse.Y - 8)
     end)
     
--- Outer Frame (fully opaque black)
-local Frame = Instance.new("Frame")
-Frame.Name = "MainFrame"
 Frame.Parent = fu8rj82n
-Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)  -- fully black
-Frame.BackgroundTransparency = 0  -- fully opaque
+Frame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Frame.BackgroundTransparency = 0.5  -- ⬅️ Made semi-transparent
+Frame.BorderColor3 = Color3.fromRGB(20, 20, 20)
 Frame.BorderSizePixel = 0
 Frame.Position = UDim2.new(0.289808273, 0, 0.313227266, 0)
-Frame.Size = UDim2.new(0, 520, 0, 340)
+Frame.Size = UDim2.new(0, 520, 0, 340)  -- BIGGER UI
 
--- Rounded corners for outer frame
-local FrameCorner = Instance.new("UICorner")
-FrameCorner.CornerRadius = UDim.new(0, 12)
+FrameCorner.Name = "FrameCorner"
 FrameCorner.Parent = Frame
 
--- Gradient on outer frame (optional, subtle)
-local FrameGradient = Instance.new("UIGradient")
+-- Adjusted gradient to be more subtle since background is see-through
 FrameGradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0, Color3.fromRGB(40, 0, 80)),
-    ColorSequenceKeypoint.new(1, Color3.fromRGB(100, 40, 160))
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(80, 40, 130)),
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(140, 80, 200))
 }
 FrameGradient.Rotation = 90
-FrameGradient.Transparency = NumberSequence.new(0)  -- fully opaque
+FrameGradient.Transparency = NumberSequence.new(1)  -- ⬅️ Slight fade on gradient
 FrameGradient.Parent = Frame
+    
+    DashBoard.Name = "DashBoard"
+    DashBoard.Parent = Frame
+    DashBoard.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+    DashBoard.BackgroundTransparency = 0.35 
+    DashBoard.BorderColor3 = Color3.fromRGB(15, 15, 15)
+    DashBoard.Position = UDim2.new(0.0185185205, 0, 0.16842106, 0)
+    DashBoard.Size = UDim2.new(0, 140, 0, 270)  -- WIDER TABS
+    
+    DashBoardCorner.CornerRadius = UDim.new(0, 8)
+    DashBoardCorner.Name = "DashBoardCorner"
+    DashBoardCorner.Parent = DashBoard
 
+    DashBoardGradient.Color = ColorSequence.new{
+        ColorSequenceKeypoint.new(0, Color3.fromRGB(45, 15, 75)),
+        ColorSequenceKeypoint.new(1, Color3.fromRGB(110, 60, 160))
+    }
+    DashBoardGradient.Rotation = 90
+    DashBoardGradient.Parent = DashBoard
+    
+    TabContainer.Name = "TabContainer"
+    TabContainer.Parent = DashBoard
+    TabContainer.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+    TabContainer.BackgroundTransparency = 1.000
+    TabContainer.BorderColor3 = Color3.fromRGB(15, 15, 15)
+    TabContainer.BorderSizePixel = 0
+    TabContainer.Position = UDim2.new(0.0280373823, 0, 0.0391304344, 0)
+    TabContainer.Size = UDim2.new(0, 132, 0, 260)
+    
+    TabContainer_2.Name = "TabContainer"
+    TabContainer_2.Parent = TabContainer
+    TabContainer_2.HorizontalAlignment = Enum.HorizontalAlignment.Center
+    TabContainer_2.SortOrder = Enum.SortOrder.LayoutOrder
+    TabContainer_2.Padding = UDim.new(0, 12)
 
--- DashBoard (glassy/transparent)
-local DashBoard = Instance.new("Frame")
-DashBoard.Name = "DashBoard"
-DashBoard.Parent = Frame
-DashBoard.BackgroundColor3 = Color3.fromRGB(15, 15, 15)  -- dark glassy color
-DashBoard.BackgroundTransparency = 0.4  -- semi-transparent glass effect
-DashBoard.BorderColor3 = Color3.fromRGB(15, 15, 15)
-DashBoard.Position = UDim2.new(0.0185185205, 0, 0.16842106, 0)
-DashBoard.Size = UDim2.new(0, 140, 0, 270)
+    PageContainer.Name = "PageContainer"
+    PageContainer.Parent = Frame
+    PageContainer.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+    PageContainer.BackgroundTransparency = 0.35 
+    PageContainer.BorderColor3 = Color3.fromRGB(15, 15, 15)
+    PageContainer.Position = UDim2.new(0.282407403, 0, 0.16842106, 0)
+    PageContainer.Size = UDim2.new(0, 360, 0, 270) 
+    
+    PageContainerCorner.CornerRadius = UDim.new(0, 8)
+    PageContainerCorner.Name = "PageContainerCorner"
+    PageContainerCorner.Parent = PageContainer
 
-local DashBoardCorner = Instance.new("UICorner")
-DashBoardCorner.CornerRadius = UDim.new(0, 8)
-DashBoardCorner.Name = "DashBoardCorner"
-DashBoardCorner.Parent = DashBoard
-
-local DashBoardGradient = Instance.new("UIGradient")
-DashBoardGradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0, Color3.fromRGB(45, 15, 75)),
-    ColorSequenceKeypoint.new(1, Color3.fromRGB(110, 60, 160))
-}
-DashBoardGradient.Rotation = 90
-DashBoardGradient.Transparency = NumberSequence.new(0.4)  -- keep glassy effect
-DashBoardGradient.Parent = DashBoard
-
-
--- Tab Container inside DashBoard
-local TabContainer = Instance.new("Frame")
-TabContainer.Name = "TabContainer"
-TabContainer.Parent = DashBoard
-TabContainer.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
-TabContainer.BackgroundTransparency = 1  -- fully see-through inside dashboard
-TabContainer.BorderSizePixel = 0
-TabContainer.Position = UDim2.new(0.0280373823, 0, 0.0391304344, 0)
-TabContainer.Size = UDim2.new(0, 132, 0, 260)
-
-local TabContainer_2 = Instance.new("UIListLayout")
-TabContainer_2.Name = "TabContainer"
-TabContainer_2.Parent = TabContainer
-TabContainer_2.HorizontalAlignment = Enum.HorizontalAlignment.Center
-TabContainer_2.SortOrder = Enum.SortOrder.LayoutOrder
-TabContainer_2.Padding = UDim.new(0, 12)
-
-
--- PageContainer (glassy/transparent)
-local PageContainer = Instance.new("Frame")
-PageContainer.Name = "PageContainer"
-PageContainer.Parent = Frame
-PageContainer.BackgroundColor3 = Color3.fromRGB(15, 15, 15)  -- dark glassy color
-PageContainer.BackgroundTransparency = 0.4  -- semi-transparent
-PageContainer.BorderColor3 = Color3.fromRGB(15, 15, 15)
-PageContainer.Position = UDim2.new(0.282407403, 0, 0.16842106, 0)
-PageContainer.Size = UDim2.new(0, 360, 0, 270)
-
-local PageContainerCorner = Instance.new("UICorner")
-PageContainerCorner.CornerRadius = UDim.new(0, 8)
-PageContainerCorner.Name = "PageContainerCorner"
-PageContainerCorner.Parent = PageContainer
-
-local PageContainerGradient = Instance.new("UIGradient")
-PageContainerGradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0, Color3.fromRGB(45, 15, 75)),
-    ColorSequenceKeypoint.new(1, Color3.fromRGB(110, 60, 160))
-}
-PageContainerGradient.Rotation = 90
-PageContainerGradient.Transparency = NumberSequence.new(0.4)  -- glassy fade
-PageContainerGradient.Parent = PageContainer
-
-
--- PageFolder inside PageContainer
-local PageFolder = Instance.new("Folder")
-PageFolder.Name = "PageFolder"
-PageFolder.Parent = PageContainer
-
+    PageContainerGradient.Color = ColorSequence.new{
+        ColorSequenceKeypoint.new(0, Color3.fromRGB(45, 15, 75)),
+        ColorSequenceKeypoint.new(1, Color3.fromRGB(110, 60, 160))
+    }
+    PageContainerGradient.Rotation = 90
+    PageContainerGradient.Parent = PageContainer
+    
+    PageFolder.Name = "PageFolder"
+    PageFolder.Parent = PageContainer
 
     Title.Name = "Title"
     Title.Parent = Frame
