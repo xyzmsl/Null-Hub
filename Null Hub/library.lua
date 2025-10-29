@@ -50,7 +50,7 @@ function Library:CreateWindow(windowname,windowinfo)
     end)
     
     Frame.Parent = fu8rj82n
-    Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    Frame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
     Frame.BackgroundTransparency = 0  -- Outer frame remains fully opaque
     Frame.BorderColor3 = Color3.fromRGB(20, 20, 20)
     Frame.BorderSizePixel = 0
@@ -187,7 +187,7 @@ function Library:CreateWindow(windowname,windowinfo)
 	end)
 	
 	Cre.MouseLeave:Connect(function()
-		YepTitle.BackgroundTransparency = 0.5
+		YepTitle.BackgroundTransparency = 0
 		YepTitle.TextTransparency = 0.3
 		wait(0.05)
 		YepTitle.BackgroundTransparency = 0.8
@@ -482,7 +482,7 @@ function Library:CreateWindow(windowname,windowinfo)
             
             ToggleBall.Name = "ToggleBall"
             ToggleBall.Parent = ToggleFrame
-            ToggleBall.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            ToggleBall.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
             ToggleBall.Position = UDim2.new(0.12, 0, 0.15, 0)
             ToggleBall.Size = UDim2.new(0, 16, 0, 16)
             
@@ -789,7 +789,7 @@ function Library:CreateWindow(windowname,windowinfo)
                     Home.CanvasPosition = Vector2.new(0,0)
                 else
                     DropDownEnabled = false
-                    DropdownIcon.ImageColor3 = Color3.fromRGB(255,255,255)
+                    DropdownIcon.ImageColor3 = Color3.fromRGB(0, 0, 0)
                     DropdownOptionContainer:TweenSize(UDim2.new(0, 345,0, 10),"Out","Linear",0.2)
                     wait(0.2)
                     DropdownOptionContainer.Visible = false
@@ -806,7 +806,7 @@ function Library:CreateWindow(windowname,windowinfo)
 
                 Option.Name = "Option"
                 Option.Parent = DropdownOptionContainer
-                Option.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+                Option.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
                 Option.BackgroundTransparency = 0 
                 Option.BorderColor3 = Color3.fromRGB(15, 15, 15)
                 Option.Position = UDim2.new(0.0173611119, 0, 0, 0)
@@ -840,7 +840,7 @@ function Library:CreateWindow(windowname,windowinfo)
 
                 Option.MouseButton1Down:Connect(function()
                     DropDownEnabled = false
-                    DropdownIcon.ImageColor3 = Color3.fromRGB(255,255,255)
+                    DropdownIcon.ImageColor3 = Color3.fromRGB(0, 0, 0)
                     DropdownOptionContainer:TweenSize(UDim2.new(0, 345,0, 10),"Out","Linear",0.2)
                     wait(0.2)
                     DropdownOptionContainer.Visible = false
@@ -857,4 +857,3 @@ function Library:CreateWindow(windowname,windowinfo)
     return PageYep
 end
 return Library
-
