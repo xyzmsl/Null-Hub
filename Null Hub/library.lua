@@ -48,14 +48,16 @@ function Library:CreateWindow(windowname,windowinfo)
         local mouse = game.Players.LocalPlayer:GetMouse()
         cursor.Position = UDim2.new(0, mouse.X - 8, 0, mouse.Y - 8)
     end)
-    
+
+    -- Make sure this is inside Library:CreateWindow()
+
 Frame.Parent = fu8rj82n
 Frame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-Frame.BackgroundTransparency = 0.5  -- ⬅️ Made semi-transparent
-Frame.BorderColor3 = Color3.fromRGB(20, 20, 20)
+Frame.BackgroundTransparency = 0.5  -- semi-transparent main window
+Frame.BorderColor3 = Color3.fromRGB(24, 24, 24)
 Frame.BorderSizePixel = 0
 Frame.Position = UDim2.new(0.289808273, 0, 0.313227266, 0)
-Frame.Size = UDim2.new(0, 520, 0, 340)  -- BIGGER UI
+Frame.Size = UDim2.new(0, 520, 0, 340)  -- bigger UI
 
 FrameCorner.Name = "FrameCorner"
 FrameCorner.Parent = Frame
@@ -66,8 +68,20 @@ FrameGradient.Color = ColorSequence.new{
     ColorSequenceKeypoint.new(1, Color3.fromRGB(140, 80, 200))
 }
 FrameGradient.Rotation = 90
-FrameGradient.Transparency = NumberSequence.new(0.4)  -- ⬅️ Slight fade on gradient
+FrameGradient.Transparency = NumberSequence.new(0.4)  -- Slight fade on gradient
 FrameGradient.Parent = Frame
+
+-- Make sure IgnoreGuiInset is set before adding blur
+fu8rj82n.IgnoreGuiInset = true
+
+-- Optional frosted glass background layer
+local blur = Instance.new("Frame")
+blur.Name = "GlassEffect"
+blur.Parent = fu8rj82n
+blur.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+blur.BackgroundTransparency = 0.8  -- mostly transparent black overlay
+blur.Size = UDim2.new(1, 0, 1, 0)
+blur.ZIndex = -1  -- behind everything
     
     DashBoard.Name = "DashBoard"
     DashBoard.Parent = Frame
@@ -859,4 +873,3 @@ FrameGradient.Parent = Frame
     return PageYep
 end
 return Library
-
