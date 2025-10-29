@@ -41,7 +41,7 @@ function Library:CreateWindow(windowname,windowinfo)
     local cursor = Instance.new("ImageLabel")
     cursor.Name = "CustomCursor"
     cursor.Parent = fu8rj82n
-    cursor.BackgroundTransparency = 1
+    cursor.BackgroundTransparency = 0
     cursor.Size = UDim2.new(0, 32, 0, 32)
     cursor.Image = "rbxassetid://3421415816"  -- default Roblox cursor
     cursor.ZIndex = 9999
@@ -254,7 +254,7 @@ function Library:CreateWindow(windowname,windowinfo)
         Tab.Name = "Tab"
         Tab.Parent = TabContainer
         Tab.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
-        Tab.BackgroundTransparency = 0  -- Tabs remain solid
+        Tab.BackgroundTransparency = 0.35  -- Tabs remain solid
         Tab.BorderColor3 = Color3.fromRGB(15, 15, 15)
         Tab.Position = UDim2.new(-0.0250000004, 0, 0, 0)
         Tab.Size = UDim2.new(0, 130, 0, 32)  -- BIGGER TABS
@@ -338,7 +338,7 @@ function Library:CreateWindow(windowname,windowinfo)
             LabelHolder.Name = "LabelHolder"
             LabelHolder.Parent = Home
             LabelHolder.BackgroundColor3 = Color3.fromRGB(17, 17, 17)
-            LabelHolder.BackgroundTransparency = 0.35  -- Element backgrounds semi-transparent
+            LabelHolder.BackgroundTransparency = 0  -- Element backgrounds semi-transparent
             LabelHolder.BorderColor3 = Color3.fromRGB(17, 17, 17)
             LabelHolder.BorderSizePixel = 0
             LabelHolder.Position = UDim2.new(0.0167785231, 0, 0, 0)
@@ -386,7 +386,7 @@ function Library:CreateWindow(windowname,windowinfo)
             ButtonHolder.Name = "ButtonHolder"
             ButtonHolder.Parent = Home
             ButtonHolder.BackgroundColor3 = Color3.fromRGB(17, 17, 17)
-            ButtonHolder.BackgroundTransparency = 0.35  -- Element backgrounds semi-transparent
+            ButtonHolder.BackgroundTransparency = 0  -- Element backgrounds semi-transparent
             ButtonHolder.BorderColor3 = Color3.fromRGB(17, 17, 17)
             ButtonHolder.BorderSizePixel = 0
             ButtonHolder.Position = UDim2.new(0.0167785231, 0, 0, 0)
@@ -437,7 +437,7 @@ function Library:CreateWindow(windowname,windowinfo)
             ToggleHolder.Name = "ToggleHolder"
             ToggleHolder.Parent = Home
             ToggleHolder.BackgroundColor3 = Color3.fromRGB(17, 17, 17)
-            ToggleHolder.BackgroundTransparency = 0.35  -- Element backgrounds semi-transparent
+            ToggleHolder.BackgroundTransparency = 0  -- Element backgrounds semi-transparent
             ToggleHolder.BorderColor3 = Color3.fromRGB(17, 17, 17)
             ToggleHolder.BorderSizePixel = 0
             ToggleHolder.Position = UDim2.new(0.0167785231, 0, 0, 0)
@@ -526,7 +526,7 @@ function Library:CreateWindow(windowname,windowinfo)
             SliderHolder.Name = "SliderHolder"
             SliderHolder.Parent = Home
             SliderHolder.BackgroundColor3 = Color3.fromRGB(17, 17, 17)
-            SliderHolder.BackgroundTransparency = 0.35  -- Element backgrounds semi-transparent
+            SliderHolder.BackgroundTransparency = 0  -- Element backgrounds semi-transparent
             SliderHolder.BorderColor3 = Color3.fromRGB(17, 16, 16)
             SliderHolder.BorderSizePixel = 0
             SliderHolder.Position = UDim2.new(0.0167785231, 0, 0, 0)
@@ -739,7 +739,7 @@ function Library:CreateWindow(windowname,windowinfo)
             DropdownContainer.Parent = DropdownHolder
             DropdownContainer.Active = true
             DropdownContainer.BackgroundColor3 = Color3.fromRGB(17, 17, 17)
-            DropdownContainer.BackgroundTransparency = 0.35  -- Dropdown container semi-transparent
+            DropdownContainer.BackgroundTransparency = 0  -- Dropdown container semi-transparent
             DropdownContainer.BorderColor3 = Color3.fromRGB(17, 17, 17)
             DropdownContainer.BorderSizePixel = 0
             DropdownContainer.ClipsDescendants = true
@@ -811,7 +811,7 @@ function Library:CreateWindow(windowname,windowinfo)
                 Option.Name = "Option"
                 Option.Parent = DropdownOptionContainer
                 Option.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
-                Option.BackgroundTransparency = 0.35  -- Dropdown options semi-transparent
+                Option.BackgroundTransparency = 0  -- Dropdown options semi-transparent
                 Option.BorderColor3 = Color3.fromRGB(15, 15, 15)
                 Option.Position = UDim2.new(0.0173611119, 0, 0, 0)
                 Option.Size = UDim2.new(0, 335, 0, 26)
