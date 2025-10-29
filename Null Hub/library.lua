@@ -49,23 +49,25 @@ function Library:CreateWindow(windowname,windowinfo)
         cursor.Position = UDim2.new(0, mouse.X - 8, 0, mouse.Y - 8)
     end)
     
-    Frame.Parent = fu8rj82n
-    Frame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-    Frame.BackgroundTransparency = 0  -- Outer frame remains fully opaque
-    Frame.BorderColor3 = Color3.fromRGB(20, 20, 20)
-    Frame.BorderSizePixel = 0
-    Frame.Position = UDim2.new(0.289808273, 0, 0.313227266, 0)
-    Frame.Size = UDim2.new(0, 520, 0, 340)  -- BIGGER UI
-    
-    FrameCorner.Name = "FrameCorner"
-    FrameCorner.Parent = Frame
+Frame.Parent = fu8rj82n
+Frame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Frame.BackgroundTransparency = 0.5  -- ⬅️ Made semi-transparent
+Frame.BorderColor3 = Color3.fromRGB(20, 20, 20)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.289808273, 0, 0.313227266, 0)
+Frame.Size = UDim2.new(0, 520, 0, 340)  -- BIGGER UI
 
-    FrameGradient.Color = ColorSequence.new{
-        ColorSequenceKeypoint.new(0, Color3.fromRGB(60, 20, 100)),
-        ColorSequenceKeypoint.new(1, Color3.fromRGB(140, 80, 200))
-    }
-    FrameGradient.Rotation = 90
-    FrameGradient.Parent = Frame
+FrameCorner.Name = "FrameCorner"
+FrameCorner.Parent = Frame
+
+-- Adjusted gradient to be more subtle since background is see-through
+FrameGradient.Color = ColorSequence.new{
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(80, 40, 130)),
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(140, 80, 200))
+}
+FrameGradient.Rotation = 90
+FrameGradient.Transparency = NumberSequence.new(0.4)  -- ⬅️ Slight fade on gradient
+FrameGradient.Parent = Frame
     
     DashBoard.Name = "DashBoard"
     DashBoard.Parent = Frame
@@ -806,9 +808,9 @@ function Library:CreateWindow(windowname,windowinfo)
 
                 Option.Name = "Option"
                 Option.Parent = DropdownOptionContainer
-                Option.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+                Option.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
                 Option.BackgroundTransparency = 0 
-                Option.BorderColor3 = Color3.fromRGB(15, 15, 15)
+                Option.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Option.Position = UDim2.new(0.0173611119, 0, 0, 0)
                 Option.Size = UDim2.new(0, 335, 0, 26)
                 Option.AutoButtonColor = false
@@ -857,3 +859,4 @@ function Library:CreateWindow(windowname,windowinfo)
     return PageYep
 end
 return Library
+
