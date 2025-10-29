@@ -131,7 +131,6 @@ function Library:CreateWindow(windowname,windowinfo)
     YepTitle.TextColor3 = Color3.fromRGB(200, 100, 255)  -- PURPLE/MAGENTA
     YepTitle.TextSize = 10.000
     YepTitle.TextTransparency = 1.000
-    print("derek cool")
     YepCorner.Name = "YepCorner"
     YepCorner.Parent = YepTitle
 
