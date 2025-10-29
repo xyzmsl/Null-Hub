@@ -1,3 +1,4 @@
+-- don't judge rage:
 local function DestroyYep()
     for x = 1,69 do 
         if game.CoreGui:FindFirstChild("fu8rj82n") then game.CoreGui:FindFirstChild("fu8rj82n"):Destroy() end
