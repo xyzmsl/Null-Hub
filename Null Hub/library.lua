@@ -52,9 +52,9 @@ function Library:CreateWindow(windowname,windowinfo)
 -- Outer Frame (Opaque black)
     local Frame = Instance.new("Frame")
     Frame.Parent = fu8rj82n
-    Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    Frame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
     Frame.BackgroundTransparency = 1  -- fully opaque outer frame
-    Frame.BorderSizePixel = 0
+    Frame.BorderSizePixel = 1
     Frame.Position = UDim2.new(0.289808273, 0, 0.313227266, 0)
     Frame.Size = UDim2.new(0, 520, 0, 340)
 
