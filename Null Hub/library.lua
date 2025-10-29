@@ -52,9 +52,9 @@ function Library:CreateWindow(windowname,windowinfo)
 -- Outer Frame (Opaque black)
     local Frame = Instance.new("Frame")
     Frame.Parent = fu8rj82n
-    Frame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-    Frame.BackgroundTransparency = 1  -- fully opaque outer frame
-    Frame.BorderSizePixel = 1
+    Frame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+    Frame.BackgroundTransparency = 0  -- fully opaque outer frame
+    Frame.BorderSizePixel = 0
     Frame.Position = UDim2.new(0.289808273, 0, 0.313227266, 0)
     Frame.Size = UDim2.new(0, 520, 0, 340)
 
@@ -64,16 +64,12 @@ function Library:CreateWindow(windowname,windowinfo)
     FrameCorner.Parent = Frame
 
 -- Outer gradient
+
     local FrameGradient = Instance.new("UIGradient")
-    FrameGradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0, Color3.fromRGB(60, 20, 100)),
-    ColorSequenceKeypoint.new(1, Color3.fromRGB(140, 80, 200))
-}
-    FrameGradient.Rotation = 90
-    FrameGradient.Transparency = NumberSequence.new{
-    NumberSequenceKeypoint.new(0, 0),
-    NumberSequenceKeypoint.new(0.5, 0.8),
-    NumberSequenceKeypoint.new(1, 0)
+    FrameGradient.Color = ColorSequence.new(Color3.fromRGB(0, 0, 0)) -- solid black
+    FrameGradient.Transparency = NumberSequence.new(0)               -- fully opaque
+    FrameGradient.Rotation = 0
+
 }  -- fades toward the center
    FrameGradient.Parent = Frame
 
@@ -83,7 +79,7 @@ function Library:CreateWindow(windowname,windowinfo)
     InnerFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
     InnerFrame.BackgroundTransparency = 1  -- fully transparent center
     InnerFrame.BorderSizePixel = 0
-    InnerFrame.Size = UDim2.new(1, 25, 1, 25)  -- padding from edges
+    InnerFrame.Size = UDim2.new(1, -20, 1, -20)  -- padding from edges
     InnerFrame.Position = UDim2.new(0, 10, 0, 10)
     
     DashBoard.Name = "DashBoard"
