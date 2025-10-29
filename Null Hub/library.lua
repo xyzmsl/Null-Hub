@@ -75,13 +75,13 @@ FrameGradient.Transparency = NumberSequence.new(0)  -- fully opaque
 FrameGradient.Parent = Frame
 
 
--- DashBoard (fully black)
+-- DashBoard (glassy/transparent)
 local DashBoard = Instance.new("Frame")
 DashBoard.Name = "DashBoard"
 DashBoard.Parent = Frame
-DashBoard.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-DashBoard.BackgroundTransparency = 0  -- fully opaque
-DashBoard.BorderColor3 = Color3.fromRGB(0, 0, 0)
+DashBoard.BackgroundColor3 = Color3.fromRGB(15, 15, 15)  -- dark glassy color
+DashBoard.BackgroundTransparency = 0.4  -- semi-transparent glass effect
+DashBoard.BorderColor3 = Color3.fromRGB(15, 15, 15)
 DashBoard.Position = UDim2.new(0.0185185205, 0, 0.16842106, 0)
 DashBoard.Size = UDim2.new(0, 140, 0, 270)
 
@@ -96,7 +96,7 @@ DashBoardGradient.Color = ColorSequence.new{
     ColorSequenceKeypoint.new(1, Color3.fromRGB(110, 60, 160))
 }
 DashBoardGradient.Rotation = 90
-DashBoardGradient.Transparency = NumberSequence.new(0)  -- fully opaque
+DashBoardGradient.Transparency = NumberSequence.new(0.4)  -- keep glassy effect
 DashBoardGradient.Parent = DashBoard
 
 
@@ -104,8 +104,8 @@ DashBoardGradient.Parent = DashBoard
 local TabContainer = Instance.new("Frame")
 TabContainer.Name = "TabContainer"
 TabContainer.Parent = DashBoard
-TabContainer.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-TabContainer.BackgroundTransparency = 0  -- fully opaque
+TabContainer.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+TabContainer.BackgroundTransparency = 1  -- fully see-through inside dashboard
 TabContainer.BorderSizePixel = 0
 TabContainer.Position = UDim2.new(0.0280373823, 0, 0.0391304344, 0)
 TabContainer.Size = UDim2.new(0, 132, 0, 260)
@@ -118,13 +118,13 @@ TabContainer_2.SortOrder = Enum.SortOrder.LayoutOrder
 TabContainer_2.Padding = UDim.new(0, 12)
 
 
--- PageContainer (fully black)
+-- PageContainer (glassy/transparent)
 local PageContainer = Instance.new("Frame")
 PageContainer.Name = "PageContainer"
 PageContainer.Parent = Frame
-PageContainer.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-PageContainer.BackgroundTransparency = 0  -- fully opaque
-PageContainer.BorderColor3 = Color3.fromRGB(0, 0, 0)
+PageContainer.BackgroundColor3 = Color3.fromRGB(15, 15, 15)  -- dark glassy color
+PageContainer.BackgroundTransparency = 0.4  -- semi-transparent
+PageContainer.BorderColor3 = Color3.fromRGB(15, 15, 15)
 PageContainer.Position = UDim2.new(0.282407403, 0, 0.16842106, 0)
 PageContainer.Size = UDim2.new(0, 360, 0, 270)
 
@@ -139,13 +139,15 @@ PageContainerGradient.Color = ColorSequence.new{
     ColorSequenceKeypoint.new(1, Color3.fromRGB(110, 60, 160))
 }
 PageContainerGradient.Rotation = 90
-PageContainerGradient.Transparency = NumberSequence.new(0)  -- fully opaque
+PageContainerGradient.Transparency = NumberSequence.new(0.4)  -- glassy fade
 PageContainerGradient.Parent = PageContainer
+
 
 -- PageFolder inside PageContainer
 local PageFolder = Instance.new("Folder")
 PageFolder.Name = "PageFolder"
 PageFolder.Parent = PageContainer
+
 
     Title.Name = "Title"
     Title.Parent = Frame
@@ -881,4 +883,3 @@ PageFolder.Parent = PageContainer
     return PageYep
 end
 return Library
-
