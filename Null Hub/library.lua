@@ -49,80 +49,84 @@ function Library:CreateWindow(windowname,windowinfo)
         cursor.Position = UDim2.new(0, mouse.X - 8, 0, mouse.Y - 8)
     end)
     
-    Frame.Parent = fu8rj82n
-    Frame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-    Frame.BackgroundTransparency = 0  -- Outer frame remains fully opaque
-    Frame.BorderColor3 = Color3.fromRGB(20, 20, 20)
-    Frame.BorderSizePixel = 0
-    Frame.Position = UDim2.new(0.289808273, 0, 0.313227266, 0)
-    Frame.Size = UDim2.new(0, 520, 0, 340)  -- BIGGER UI
-    
-    FrameCorner.Name = "FrameCorner"
-    FrameCorner.Parent = Frame
+Frame.Parent = fu8rj82n
+Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BackgroundTransparency = 0   -- ⬅️ outside frame fully opaque black
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.289808273, 0, 0.313227266, 0)
+Frame.Size = UDim2.new(0, 520, 0, 340)
 
-    FrameGradient.Color = ColorSequence.new{
-        ColorSequenceKeypoint.new(0, Color3.fromRGB(60, 20, 100)),
-        ColorSequenceKeypoint.new(1, Color3.fromRGB(140, 80, 200))
-    }
-    FrameGradient.Rotation = 90
-    FrameGradient.Parent = Frame
-    
-    DashBoard.Name = "DashBoard"
-    DashBoard.Parent = Frame
-    DashBoard.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
-    DashBoard.BackgroundTransparency = 0.35 
-    DashBoard.BorderColor3 = Color3.fromRGB(15, 15, 15)
-    DashBoard.Position = UDim2.new(0.0185185205, 0, 0.16842106, 0)
-    DashBoard.Size = UDim2.new(0, 140, 0, 270)  -- WIDER TABS
-    
-    DashBoardCorner.CornerRadius = UDim.new(0, 8)
-    DashBoardCorner.Name = "DashBoardCorner"
-    DashBoardCorner.Parent = DashBoard
+FrameCorner.Name = "FrameCorner"
+FrameCorner.Parent = Frame
 
-    DashBoardGradient.Color = ColorSequence.new{
-        ColorSequenceKeypoint.new(0, Color3.fromRGB(45, 15, 75)),
-        ColorSequenceKeypoint.new(1, Color3.fromRGB(110, 60, 160))
-    }
-    DashBoardGradient.Rotation = 90
-    DashBoardGradient.Parent = DashBoard
-    
-    TabContainer.Name = "TabContainer"
-    TabContainer.Parent = DashBoard
-    TabContainer.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
-    TabContainer.BackgroundTransparency = 1.000
-    TabContainer.BorderColor3 = Color3.fromRGB(15, 15, 15)
-    TabContainer.BorderSizePixel = 0
-    TabContainer.Position = UDim2.new(0.0280373823, 0, 0.0391304344, 0)
-    TabContainer.Size = UDim2.new(0, 132, 0, 260)
-    
-    TabContainer_2.Name = "TabContainer"
-    TabContainer_2.Parent = TabContainer
-    TabContainer_2.HorizontalAlignment = Enum.HorizontalAlignment.Center
-    TabContainer_2.SortOrder = Enum.SortOrder.LayoutOrder
-    TabContainer_2.Padding = UDim.new(0, 12)
+-- Outside solid, gradient removed (optional). If you KEEP gradient:
+FrameGradient.Color = ColorSequence.new{
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 0)),
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 0, 0))
+}
+FrameGradient.Transparency = NumberSequence.new(0) -- fully visible, still black
+FrameGradient.Rotation = 90
+FrameGradient.Parent = Frame
 
-    PageContainer.Name = "PageContainer"
-    PageContainer.Parent = Frame
-    PageContainer.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
-    PageContainer.BackgroundTransparency = 0.35 
-    PageContainer.BorderColor3 = Color3.fromRGB(15, 15, 15)
-    PageContainer.Position = UDim2.new(0.282407403, 0, 0.16842106, 0)
-    PageContainer.Size = UDim2.new(0, 360, 0, 270) 
-    
-    PageContainerCorner.CornerRadius = UDim.new(0, 8)
-    PageContainerCorner.Name = "PageContainerCorner"
-    PageContainerCorner.Parent = PageContainer
 
-    PageContainerGradient.Color = ColorSequence.new{
-        ColorSequenceKeypoint.new(0, Color3.fromRGB(45, 15, 75)),
-        ColorSequenceKeypoint.new(1, Color3.fromRGB(110, 60, 160))
-    }
-    PageContainerGradient.Rotation = 90
-    PageContainerGradient.Parent = PageContainer
-    
-    PageFolder.Name = "PageFolder"
-    PageFolder.Parent = PageContainer
+DashBoard.Name = "DashBoard"
+DashBoard.Parent = Frame
+DashBoard.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+DashBoard.BackgroundTransparency = 0.6   -- ⬅️ inside = transparent
+DashBoard.BorderColor3 = Color3.fromRGB(0, 0, 0)
+DashBoard.Position = UDim2.new(0.0185185205, 0, 0.16842106, 0)
+DashBoard.Size = UDim2.new(0, 140, 0, 270)
 
+DashBoardCorner.CornerRadius = UDim.new(0, 8)
+DashBoardCorner.Name = "DashBoardCorner"
+DashBoardCorner.Parent = DashBoard
+
+DashBoardGradient.Color = ColorSequence.new{
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(45, 45, 45)),
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(45, 45, 45))
+}
+DashBoardGradient.Rotation = 90
+DashBoardGradient.Parent = DashBoard
+
+
+TabContainer.Name = "TabContainer"
+TabContainer.Parent = DashBoard
+TabContainer.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TabContainer.BackgroundTransparency = 1  -- invisible
+TabContainer.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TabContainer.BorderSizePixel = 0
+TabContainer.Position = UDim2.new(0.0280373823, 0, 0.0391304344, 0)
+TabContainer.Size = UDim2.new(0, 132, 0, 260)
+
+TabContainer_2.Name = "TabContainer"
+TabContainer_2.Parent = TabContainer
+TabContainer_2.HorizontalAlignment = Enum.HorizontalAlignment.Center
+TabContainer_2.SortOrder = Enum.SortOrder.LayoutOrder
+TabContainer_2.Padding = UDim.new(0, 12)
+
+
+PageContainer.Name = "PageContainer"
+PageContainer.Parent = Frame
+PageContainer.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+PageContainer.BackgroundTransparency = 0.6   -- ⬅️ inside = transparent
+PageContainer.BorderColor3 = Color3.fromRGB(0, 0, 0)
+PageContainer.Position = UDim2.new(0.282407403, 0, 0.16842106, 0)
+PageContainer.Size = UDim2.new(0, 360, 0, 270)
+
+PageContainerCorner.CornerRadius = UDim.new(0, 8)
+PageContainerCorner.Name = "PageContainerCorner"
+PageContainerCorner.Parent = PageContainer
+
+PageContainerGradient.Color = ColorSequence.new{
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(45, 45, 45)),
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(45, 45, 45))
+}
+PageContainerGradient.Rotation = 90
+PageContainerGradient.Parent = PageContainer
+
+PageFolder.Name = "PageFolder"
+PageFolder.Parent = PageContainer
     Title.Name = "Title"
     Title.Parent = Frame
     Title.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
@@ -187,12 +191,12 @@ function Library:CreateWindow(windowname,windowinfo)
 	end)
 	
 	Cre.MouseLeave:Connect(function()
-		YepTitle.BackgroundTransparency = 0.5
+		YepTitle.BackgroundTransparency = 0
 		YepTitle.TextTransparency = 0.3
 		wait(0.05)
 		YepTitle.BackgroundTransparency = 0.8
 		YepTitle.TextTransparency = 0.5
-		Cre.ImageColor3 = Color3.fromRGB(255,255,255)
+		Cre.ImageColor3 = Color3.fromRGB(0,0,0)
 		wait(0.05)
 		YepTitle.BackgroundTransparency = 1
 		YepTitle.TextTransparency = 1
@@ -482,7 +486,7 @@ function Library:CreateWindow(windowname,windowinfo)
             
             ToggleBall.Name = "ToggleBall"
             ToggleBall.Parent = ToggleFrame
-            ToggleBall.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            ToggleBall.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
             ToggleBall.Position = UDim2.new(0.12, 0, 0.15, 0)
             ToggleBall.Size = UDim2.new(0, 16, 0, 16)
             
@@ -789,7 +793,7 @@ function Library:CreateWindow(windowname,windowinfo)
                     Home.CanvasPosition = Vector2.new(0,0)
                 else
                     DropDownEnabled = false
-                    DropdownIcon.ImageColor3 = Color3.fromRGB(255,255,255)
+                    DropdownIcon.ImageColor3 = Color3.fromRGB(0, 0, 0)
                     DropdownOptionContainer:TweenSize(UDim2.new(0, 345,0, 10),"Out","Linear",0.2)
                     wait(0.2)
                     DropdownOptionContainer.Visible = false
@@ -806,9 +810,9 @@ function Library:CreateWindow(windowname,windowinfo)
 
                 Option.Name = "Option"
                 Option.Parent = DropdownOptionContainer
-                Option.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+                Option.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
                 Option.BackgroundTransparency = 0 
-                Option.BorderColor3 = Color3.fromRGB(15, 15, 15)
+                Option.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Option.Position = UDim2.new(0.0173611119, 0, 0, 0)
                 Option.Size = UDim2.new(0, 335, 0, 26)
                 Option.AutoButtonColor = false
@@ -840,7 +844,7 @@ function Library:CreateWindow(windowname,windowinfo)
 
                 Option.MouseButton1Down:Connect(function()
                     DropDownEnabled = false
-                    DropdownIcon.ImageColor3 = Color3.fromRGB(255,255,255)
+                    DropdownIcon.ImageColor3 = Color3.fromRGB(0, 0, 0)
                     DropdownOptionContainer:TweenSize(UDim2.new(0, 345,0, 10),"Out","Linear",0.2)
                     wait(0.2)
                     DropdownOptionContainer.Visible = false
@@ -857,3 +861,4 @@ function Library:CreateWindow(windowname,windowinfo)
     return PageYep
 end
 return Library
+
