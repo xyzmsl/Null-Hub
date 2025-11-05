@@ -49,23 +49,42 @@ function Library:CreateWindow(windowname,windowinfo)
         cursor.Position = UDim2.new(0, mouse.X - 8, 0, mouse.Y - 8)
     end)
     
+-- Outer Frame (Opaque black)
+    local Frame = Instance.new("Frame")
     Frame.Parent = fu8rj82n
     Frame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-    Frame.BackgroundTransparency = 0  -- Outer frame remains fully opaque
-    Frame.BorderColor3 = Color3.fromRGB(20, 20, 20)
+    Frame.BackgroundTransparency = 0  -- fully opaque outer frame
     Frame.BorderSizePixel = 0
     Frame.Position = UDim2.new(0.289808273, 0, 0.313227266, 0)
-    Frame.Size = UDim2.new(0, 520, 0, 340)  -- BIGGER UI
-    
-    FrameCorner.Name = "FrameCorner"
+    Frame.Size = UDim2.new(0, 520, 0, 340)
+
+-- Rounded corners
+    local FrameCorner = Instance.new("UICorner")
+    FrameCorner.CornerRadius = UDim.new(0, 12)
     FrameCorner.Parent = Frame
 
+-- Outer gradient
+    local FrameGradient = Instance.new("UIGradient")
     FrameGradient.Color = ColorSequence.new{
-        ColorSequenceKeypoint.new(0, Color3.fromRGB(60, 20, 100)),
-        ColorSequenceKeypoint.new(1, Color3.fromRGB(140, 80, 200))
-    }
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(60, 20, 100)),
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(140, 80, 200))
+}
     FrameGradient.Rotation = 90
-    FrameGradient.Parent = Frame
+    FrameGradient.Transparency = NumberSequence.new{
+    NumberSequenceKeypoint.new(0, 0),
+    NumberSequenceKeypoint.new(0.5, 0.8),
+    NumberSequenceKeypoint.new(1, 0)
+}  -- fades toward the center
+   FrameGradient.Parent = Frame
+
+-- Inner transparent frame (for content)
+    local InnerFrame = Instance.new("Frame")
+    InnerFrame.Parent = Frame
+    InnerFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+    InnerFrame.BackgroundTransparency = 1  -- fully transparent center
+    InnerFrame.BorderSizePixel = 0
+    InnerFrame.Size = UDim2.new(1, -20, 1, -20)  -- padding from edges
+    InnerFrame.Position = UDim2.new(0, 10, 0, 10)
     
     DashBoard.Name = "DashBoard"
     DashBoard.Parent = Frame
